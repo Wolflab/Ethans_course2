@@ -1,0 +1,19 @@
+data_drycanyon_2013.txt
+eagle 1
+pheasant 8
+grouse 3
+sparrow 5
+mallard 2
+robin 9
+data_greencanyon_2013.txt
+eagle 1
+mallard 14
+sparrow 7
+robin 4
+bluejay 7
+data_logancanyon_2013.txt
+eagle 1
+mallard 6
+sparrow 7
+robin 3
+bluejay 15
