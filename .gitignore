@@ -1,0 +1,2 @@
+#this should deal with those nasty .DS_STORE files from mac OS
+*.DS_Store*
