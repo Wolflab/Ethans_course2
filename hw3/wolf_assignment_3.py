@@ -77,4 +77,13 @@ for row in data2['dnaseq']:
 
 data3 = data2[['id', 'earsize', 'GC_content']]
 
-print data3
+#print data3
+
+small_ears = data3[data3['earsize'] == 'small']
+silly_big_fat_ears = data3[data3['earsize'] == 'large']
+
+
+print "mean GC content of small eared elves is: ", small_ears.mean(0)
+print ""
+print "mean GC content of large eared elves is: ", silly_big_fat_ears.mean(0)
+
