@@ -78,6 +78,7 @@ for row in data2['dnaseq']:
 data3 = data2[['id', 'earsize', 'GC_content']]
 
 #print data3
+data3.to_csv("grangers_analysis.csv")
 
 small_ears = data3[data3['earsize'] == 'small']
 silly_big_fat_ears = data3[data3['earsize'] == 'large']
