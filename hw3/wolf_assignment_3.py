@@ -1,10 +1,5 @@
 import pandas as pd
 
-# url intp pandas:
-def get_data_from_web(url):
-    data = pd.read_csv(url)
-    return data
-
 # Q1.
 data = [['A1', 28], ['A2', 32], ['A3', 1], ['A4', 0],
         ['A5', 10], ['A6', 22], ['A7', 30], ['A8', 19],
@@ -43,33 +38,43 @@ print "total number of birds in sites with C: ", total_birds_c_site, '\n'
 
 #problem 2 - Dr. Granger...
 
+# url into pandas:
+def get_data_from_web(url):
+    data = pd.read_csv(url)
+    return data
+
 data2 = get_data_from_web("http://www.programmingforbiologists.org/data/houseelf_earlength_dna_data.csv")
 
 
 # 2.3 Create column of ear length long or short
-data2['L_S'] = 'S'
-data2['GC_content'] = 0
+data2['earsize'] = 'small'
 
 row_num = 0
 for row in data2['earlength']:
     if row > 10.0:
-        data2['L_S'][row_num] = 'L'
+        data2['earsize'][row_num] = 'large'
     row_num+=1       
 #print data2
 
+
 # function to determine GC content of string
+data2['GC_content'] = 0
+
 def GC(seq):
     GC_count = 0
     for i in seq:
         if 'G' in i or 'C' in i:
             GC_count+=1
     return 100*float(GC_count)/(len(seq))
-            
 
 # Create column of GC content
 row_num = 0
 for row in data2['dnaseq']:
-    data2['GC_content'][row_num] = GC(row)
+    data2['GC_content'][row_num] = float(GC(row))
     row_num+=1       
 
-print data2
+#print data2
+
+data3 = data2[['id', 'earsize', 'GC_content']]
+
+print data3
