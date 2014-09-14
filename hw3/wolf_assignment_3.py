@@ -63,7 +63,7 @@ data2['GC_content'] = 0
 def GC(seq):
     GC_count = 0
     for i in seq:
-        if 'G' in i or 'C' in i:
+        if i =='G' or i =='C':
             GC_count+=1
     return 100*float(GC_count)/(len(seq))
 
@@ -80,11 +80,11 @@ data3 = data2[['id', 'earsize', 'GC_content']]
 #print data3
 data3.to_csv("grangers_analysis.csv")
 
-small_ears = data3[data3['earsize'] == 'small']
-silly_big_fat_ears = data3[data3['earsize'] == 'large']
+small_ears_mean = data3[data3['earsize'] == 'small'].mean()[0]
+large_ears_mean = data3[data3['earsize'] == 'large'].mean()[0]
 
-
-print "mean GC content of small eared elves is: ", small_ears.mean(0)
+print "Q 2"
+print "mean GC content of small eared elves is: ", small_ears_mean
 print ""
-print "mean GC content of large eared elves is: ", silly_big_fat_ears.mean(0)
+print "mean GC content of large eared elves is: ", large_ears_mean
 
