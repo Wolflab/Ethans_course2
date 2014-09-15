@@ -48,33 +48,29 @@ data2 = get_data_from_web("http://www.programmingforbiologists.org/data/houseelf
 
 # 2.3 Create column of ear length long or short
 data2['earsize'] = 'small'
-
 row_num = 0
 for row in data2['earlength']:
     if row > 10.0:
         data2['earsize'][row_num] = 'large'
     row_num+=1       
-#print data2
 
 
 # function to determine GC content of string
-data2['GC_content'] = 0
-
 def GC(seq):
     c = seq.count("C"); g = seq.count("G")
     return 100*(g+c)/float(len(seq))
 
 # Create column of GC content
+data2['GC_content'] = 0
 row_num = 0
 for row in data2['dnaseq']:
     data2['GC_content'][row_num] = float(GC(row))
     row_num+=1       
 
-#print data2
-
+#make stripped down table
 data3 = data2[['id', 'earsize', 'GC_content']]
 
-#print data3
+#export table to csv as requested by Dr. Granger
 data3.to_csv("grangers_analysis.csv")
 
 #now calculate means of GC content for each earsize
