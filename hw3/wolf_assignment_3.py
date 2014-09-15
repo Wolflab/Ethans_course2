@@ -80,6 +80,7 @@ data3 = data2[['id', 'earsize', 'GC_content']]
 #print data3
 data3.to_csv("grangers_analysis.csv")
 
+#now calculate means of GC content for each earsize
 small_ears_mean = data3[data3['earsize'] == 'small'].mean()[0]
 large_ears_mean = data3[data3['earsize'] == 'large'].mean()[0]
 
