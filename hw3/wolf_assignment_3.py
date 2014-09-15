@@ -61,11 +61,8 @@ for row in data2['earlength']:
 data2['GC_content'] = 0
 
 def GC(seq):
-    GC_count = 0
-    for i in seq:
-        if i =='G' or i =='C':
-            GC_count+=1
-    return 100*float(GC_count)/(len(seq))
+    c = seq.count("C"); g = seq.count("G")
+    return 100*(g+c)/float(len(seq))
 
 # Create column of GC content
 row_num = 0
