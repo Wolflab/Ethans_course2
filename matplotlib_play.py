@@ -7,7 +7,7 @@ Demo of the histogram (hist) function with different ``histtype`` settings.
 """
 import numpy as np
 import matplotlib.pyplot as plt
-
+import seaborn
 
 mu = 200
 sigma = 25
@@ -23,5 +23,7 @@ bins = [100, 150, 180, 195, 205, 220, 250, 300]
 ax1.hist(x, bins, normed=1, histtype='bar', rwidth=0.8)
 ax1.set_title('unequal bins')
 
-plt.tight_layout()
-plt.show()
+#plt.tight_layout()
+#plt.savefig('myfig')
+plt.savefig('savefigexample.eps', format='eps', dpi=1000)
+#plt.show()
