@@ -48,3 +48,27 @@ print "number of unique extinct species: ", len(
 
 #Q4.3
 print "number of families: ", len(data.groupby(['family']))
+
+#Q4.4
+
+#first extract row of heaviest species
+max_row = data[data['combined_mass'] == data['combined_mass'].max()]
+# now print the three columns.
+print "Here is the info for the largest species in the list:"
+print max_row[['genus','species', 'combined_mass']].set_index(['genus'])
+
+#first extract row of smallest species
+more_than_zero = data[data['combined_mass'] > 0.0]
+min_row = more_than_zero[more_than_zero['combined_mass'] == more_than_zero[
+                     'combined_mass'].min()]
+# now print the three columns.
+# asshole - need to loop through rows
+print ""
+print "Here is the info for the smallest species in the list:"
+print min_row[['genus','species', 'combined_mass']].set_index(['genus'])
+
+# Q4.5
+print ""
+print "Q 4.5:"
+y = extinct['combined_mass'].mean()
+print "The average mass of extant species is %.2f grams and the average mass of extinct species is %.2f grams." % (extant['combined_mass'].mean(), extinct['combined_mass'].mean())
