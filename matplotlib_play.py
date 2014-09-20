@@ -25,5 +25,6 @@ ax1.set_title('unequal bins')
 
 #plt.tight_layout()
 #plt.savefig('myfig')
+#now write to file in lovely .eps format!
 plt.savefig('savefigexample.eps', format='eps', dpi=1000)
 #plt.show()
