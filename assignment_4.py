@@ -8,7 +8,7 @@ print
 col_names = ['continent', 'status', 'order', 'family', 'genus', 'species', 
              'log_mass', 'combined_mass', 'reference']
 
-data = pd.read_csv('MOMv3.3.txt', sep='\t', names = col_names)
+data = pd.read_csv('MOMv3.3.txt', keep_default_na = False, sep='\t', names = col_names)
 
 #data = pd.read_csv('http://www.esapubs.org/archive/ecol/E084/094/MOMv3.3.txt',
                      #sep='\t', names = col_names) #slower url reader.
@@ -76,7 +76,7 @@ of extinct species is %.2f grams." % (extant['combined_mass'].mean(),
                                       extinct['combined_mass'].mean())
 
 
-#Q2
+#Q2 NOte that Carol's solution much better
 continents = data.groupby(['continent', 'status'])
 
 continents_table = continents["continent", 'status', 'combined_mass'].mean()
@@ -111,9 +111,10 @@ for line in new_cont_table.values:
     elif line[1] == 'extinct':
         extinct_mean = round((line[2]),2)
         diff = abs(extant_mean - extinct_mean)
-        ratio = extinct_mean/extant_mean
+        ratio = round((extinct_mean/extant_mean), 2)
         newline += ',' + str(extinct_mean) + ',' + str(diff) + ',' + str(ratio) + '\n'
         mass_diff.write(newline)
         newline = ''
+    
                 
 mass_diff.close()
