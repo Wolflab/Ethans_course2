@@ -1,13 +1,15 @@
 import pandas as pd
 
+
 data = pd.read_csv('TradeoffData.csv')
-
-
-for row in data['RelativeFitness']:
-    if row > 1.0:
-        print row
-
-#
+#print data
+data2 = data[['Group','RelativeFitness']]
+#print data2
+for row in data2['RelativeFitness']:
+    print row  
+    for row in data2.values:
+        print row  
+\
 #
 #
 #print "number unique treatments: ", len(data.groupby(['Treatment', 'Group']))
