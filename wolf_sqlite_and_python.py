@@ -36,7 +36,7 @@ cur.execute("UPDATE FieldNotes set yr = 2012 where rowid=1")# can also use other
 cur.execute("DROP TABLE new_versus_old_codes")
 cur.execute("CREATE TABLE new_versus_old_codes(newcode TEXT, oldcode TEXT)")
 
-cur.execute("SELECT new_code, oldcode FROM PortalMammals_species")
+cur.execute("SELECT new_code, oldcode FROM PortalMammals_species,old")#note that table name now corrected
 new_old = cur.fetchall()
 #print new_old
 
@@ -48,10 +48,13 @@ for newcode, oldcode in new_old:
         codes = codes.strip()
         cur.execute("INSERT INTO new_versus_old_codes VALUES(?, ?)", (newcode, codes))
         #print codes
-        
-cur.execute("SELECT new_code, oldcode, scientificname, taxa, commonname, unknown, rodent, shrubland_affiliated  FROM PortalMammals_species")
-        
-        
+
+#Next line already run so don't do this again (yet)
+#cur.execute("ALTER TABLE PortalMammals_species RENAME TO PortalMammals_species_old")
+ 
+#Next line already run so don't do this again (yet)       
+#cur.execute("CREATE TABLE PortalMammals_species AS SELECT new_code, scientificname, taxa, commonname, unknown, rodent, shrubland_affiliated  FROM PortalMammals_species_old")
+
 
 
 """stuff and things"""  #highlight first then add quotes.
