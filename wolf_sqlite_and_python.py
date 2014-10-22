@@ -36,7 +36,7 @@ cur.execute("UPDATE FieldNotes set yr = 2012 where rowid=1")# can also use other
 cur.execute("DROP TABLE new_versus_old_codes")
 cur.execute("CREATE TABLE new_versus_old_codes(newcode TEXT, oldcode TEXT)")
 
-cur.execute("SELECT new_code, oldcode FROM PortalMammals_species,old")#note that table name now corrected
+cur.execute("SELECT new_code, oldcode FROM PortalMammals_species_old")#note that table name now corrected
 new_old = cur.fetchall()
 #print new_old
 
