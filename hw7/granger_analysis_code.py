@@ -1,4 +1,5 @@
 """Analysis code for Dr. Granger's project"""
+import urllib
 
 def get_gc_content(seq):
     """Determine the GC content of a sequence"""
@@ -34,8 +35,8 @@ def export_to_csv(data, filename):
     datawriter.writerows(data)
     output_file.close()
 
-if '__name__' == __main__:
-    elves_data = get_data_from_web('http://programmingforbiologists.org/sites/programmingforbiologists.org/files/houseelf_earlength_dna_data.csv')
+if __name__ == '__main__':
+    elves_data = get_data_from_web('http://programmingforbiologists.org/sites/programmingforbiologists.org/files/houseelf_earlength_dna_data.csv', 'str')
     
     #Determine individual level earth length category and gc content values
     results = []
