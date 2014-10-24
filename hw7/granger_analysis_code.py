@@ -6,6 +6,9 @@ import string
 def get_gc_content(seq):
     seq = seq.upper()
     seq = seq.replace('\n', '').replace('\r', '')
+    seq_set = set(seq)
+    gatc = set("GATC")
+    assert seq_set.issubset(gatc), "Your DNA has weird bases"   
     """Determine the GC content of a sequence"""
     gc_content = 100.0 * (seq.count('G') + seq.count('C')) / len(seq)
     return gc_content

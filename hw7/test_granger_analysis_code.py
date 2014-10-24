@@ -4,6 +4,7 @@ seq = "GGGGGAAAAATTTTTCCCCC"
 seq1 = "ggggaaaattttcccc" 
 seq2 = "ggGGGaaAAAttTTTccCCC"
 seq3 = "gggggaaaaa\ntttttccccc"
+seq5 = "GGGGGAAAAATTTTTCCCCCv"
 
 
 def test_gc():
@@ -11,3 +12,4 @@ def test_gc():
 	assert get_gc_content(seq1) == 50  #testing lower case
 	assert get_gc_content(seq2) == 50	#testing mixed case
 	assert get_gc_content(seq3) == 50	#testing multiple lines
+	assert get_gc_content(seq5) == 50
