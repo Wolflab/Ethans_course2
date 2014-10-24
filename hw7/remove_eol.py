@@ -1,4 +1,5 @@
 import string
+#testing removal of eod of line chars
 
 seq = 'gggggaaaaa\ntttttccccc'
 
