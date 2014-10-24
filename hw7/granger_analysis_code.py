@@ -1,8 +1,11 @@
 """Analysis code for Dr. Granger's project"""
 import urllib
 import csv
+import string
 
 def get_gc_content(seq):
+    seq = seq.upper()
+    seq = seq.replace('\n', '').replace('\r', '')
     """Determine the GC content of a sequence"""
     gc_content = 100.0 * (seq.count('G') + seq.count('C')) / len(seq)
     return gc_content
