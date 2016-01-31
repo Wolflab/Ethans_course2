@@ -9,6 +9,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn
 
+#text added Jan 31
+
 mu = 200
 sigma = 25
 x = mu + sigma*np.random.randn(10000)
