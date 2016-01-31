@@ -11,6 +11,8 @@ import seaborn
 
 #text added Jan 31
 
+# More added from new laptop
+
 mu = 200
 sigma = 25
 x = mu + sigma*np.random.randn(10000)
